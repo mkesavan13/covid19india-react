@@ -79,6 +79,14 @@ function Table(props) {
           : -1;
       }
     });
+    let index = 1;
+    states.forEach((state) => {
+      if (sortData.isAscending) {
+        state.slno = state.confirmed > 0 ? index++ : undefined;
+      } else {
+        state.slno = index++;
+      }
+    });
     states.unshift(totalRow[0]);
   };
 
@@ -123,6 +131,9 @@ function Table(props) {
         <table className="table fadeInUp" style={{animationDelay: '1.8s'}}>
           <thead>
             <tr>
+              <th className="sticky">
+                <div className="heading-content">Sl. No.</div>
+              </th>
               <th
                 className="sticky state-heading"
                 onClick={(e) => handleSort(e, props)}
@@ -265,7 +276,7 @@ function Table(props) {
                 return (
                   <Row
                     key={state.state}
-                    index={index}
+                    index={state.slno === undefined ? index : state.slno}
                     state={state}
                     total={false}
                     reveal={revealedStates[state.state]}

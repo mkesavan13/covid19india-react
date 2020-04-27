@@ -104,7 +104,7 @@ function Row(props) {
         onClick={!props.total ? handleReveal : null}
         style={{background: props.index % 2 === 0 ? '#f8f9fa' : ''}}
       >
-        <td style={{fontWeight: 600}}>
+        <td>
           <div className="table__title-wrapper">
             {!props.total && (
               <span
@@ -117,6 +117,13 @@ function Row(props) {
                 <Icon.ChevronDown />
               </span>
             )}
+            <span className="actual__title-wrapper">
+              {props.index ? props.index : ''}
+            </span>
+          </div>
+        </td>
+        <td style={{fontWeight: 600}}>
+          <div className="table__title-wrapper">
             <span className="actual__title-wrapper">
               {state.state}
               {state.statenotes && (
@@ -210,6 +217,9 @@ function Row(props) {
           </tr>
 
           <tr className={`district-heading`}>
+            <td>
+              <div className="heading-content">Sl. No.</div>
+            </td>
             <td onClick={(e) => handleSort('district')}>
               <div className="heading-content">
                 <abbr title="District">District</abbr>
@@ -287,6 +297,7 @@ function Row(props) {
                   }
                   onMouseLeave={() => props.onHighlightDistrict?.()}
                 >
+                  <td>{parseInt(index) + 1}</td>
                   <td className="unknown" style={{fontWeight: 600}}>
                     {district}
                     <span onClick={handleTooltip}>

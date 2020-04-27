@@ -333,6 +333,7 @@ function Row(props) {
       {sortedDistricts?.Unknown && showDistricts && (
         <React.Fragment>
           <tr className={`district`}>
+            <td></td>
             <td className="unknown" style={{fontWeight: 600}}>
               Unknown
               <span onClick={handleTooltip}>

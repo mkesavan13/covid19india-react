@@ -195,7 +195,7 @@ function Row(props) {
       {showDistricts && (
         <React.Fragment>
           <tr className={'state-last-update'}>
-            <td colSpan={2}>
+            <td colSpan={3}>
               <div className="last-update">
                 <h6>Last updated&nbsp;</h6>
                 <h6

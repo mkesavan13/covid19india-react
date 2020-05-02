@@ -205,7 +205,7 @@ function Row(props) {
           </tr>
 
           <tr className={'state-last-update'}>
-            <td colSpan={3}>
+            <td colSpan={4}>
               <h6
                 title={
                   isNaN(Date.parse(formatDate(props.state.lastupdatedtime)))
